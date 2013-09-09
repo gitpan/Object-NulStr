@@ -1,6 +1,8 @@
 package Object::NulStr;
 
-our $VERSION = '0.01'; # VERSION
+use 5.010001;
+
+our $VERSION = '0.02'; # VERSION
 
 use overload q{""} => sub { "\0" };
 
@@ -9,8 +11,8 @@ sub new { bless(\"$_[0]", $_[0]) }
 1;
 # ABSTRACT: Object which stringifies to NUL character ("\0")
 
-
 __END__
+
 =pod
 
 =head1 NAME
@@ -19,7 +21,7 @@ Object::NulStr - Object which stringifies to NUL character ("\0")
 
 =head1 VERSION
 
-version 0.01
+version 0.02
 
 =head1 SYNOPSIS
 
@@ -40,9 +42,13 @@ printing anything. If you just use 'die;' or 'die "";' Perl will print the
 default "Died at ..." message. But if you say 'die Object::NulStr->new;' Perl
 will die without seemingly printing anything.
 
+=for Pod::Coverage ^(new)$
+
 =head1 SEE ALSO
 
 L<Object::BlankStr>
+
+L<Object::SpaceBackStr>
 
 =head1 AUTHOR
 
@@ -50,10 +56,9 @@ Steven Haryanto <stevenharyanto@gmail.com>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2011 by Steven Haryanto.
+This software is copyright (c) 2013 by Steven Haryanto.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
 =cut
-
